@@ -20,6 +20,7 @@ export function Hero() {
       <div className="page-width hero-content">
         <p className="eyebrow hero-eyebrow"><span className="status-dot" /> ENGINEERING MEETS DATA</p>
         <h1 id="hero-title"><span className="name-line">Orson Alejandro</span>{' '}<span className="name-line">Lou Garza<span className="name-period">.</span></span></h1>
+        <p className="hero-description">Open to graduate and junior roles in the UK from January 2027</p>
         <p className="hero-tagline">Process Optimisation <span>&amp; Data Science</span></p>
         <p className="hero-description">Turning operational data into business cases for change.</p>
         <div className="hero-actions">
