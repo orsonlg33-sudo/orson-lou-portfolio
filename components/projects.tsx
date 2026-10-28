@@ -43,7 +43,7 @@ export function Projects() {
   return (
     <section id="projects" aria-labelledby="projects-title" className="projects-section">
       <div className="page-width">
-        <SectionLabel number="02">SELECTED PROJECTS</SectionLabel>
+        <SectionLabel number="02">PROJECTS</SectionLabel>
         <div className="projects-heading"><h2 id="projects-title">From analysis to impact.</h2><p>Research, real-world problems, measurable outcomes.</p></div>
         <div className="projects-grid">
           {projects.map((project, index) => (

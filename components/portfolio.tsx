@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section className="hero" aria-labelledby="hero-title" id="top">
       <header className="page-width site-header">
-        <a className="wordmark" href="#top" aria-label="Orson Lou home">ol<span>.</span></a>
+        <a className="wordmark nav-wordmark" href="#top" aria-label="Orson Alejandro Lou Garza home">OALG<span>.</span></a>
         <nav aria-label="Main navigation" className="main-nav">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
@@ -19,7 +19,7 @@ export function Hero() {
       </header>
       <div className="page-width hero-content">
         <p className="eyebrow hero-eyebrow"><span className="status-dot" /> ENGINEERING MEETS DATA</p>
-        <h1 id="hero-title">Orson Lou<span className="name-period">.</span></h1>
+        <h1 id="hero-title"><span className="name-line">Orson Alejandro</span>{' '}<span className="name-line">Lou Garza<span className="name-period">.</span></span></h1>
         <p className="hero-tagline">Process Optimisation <span>&amp; Data Science</span></p>
         <p className="hero-description">Turning operational data into business cases for change.</p>
         <div className="hero-actions">
