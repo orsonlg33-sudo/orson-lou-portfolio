@@ -1,41 +1,33 @@
-import { Activity, MessagesSquare, Workflow, Compass, Award } from 'lucide-react'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { SectionLabel } from '@/components/portfolio'
 
 const projects = [
   {
+    year: '2026',
     title: 'Electricity Load Forecasting',
-    context: 'MSc Dissertation',
-    category: 'MACHINE LEARNING',
-    description: 'A machine-learning framework that forecasts UK electricity demand across the COVID structural break, comparing Prophet, XGBoost and a CNN-LSTM.',
-    tags: ['Time-Series Forecasting', 'Python', 'Deep Learning'],
-    icon: Activity,
+    context: 'MSc dissertation, University of Hull.',
+    description: 'I forecast UK half-hourly national demand from 2014 to 2022 with four models trained only on pre-COVID data: persistence, Prophet, XGBoost and a CNN-LSTM. At lockdown, day-ahead error (MASE) rose from 0.68 to 0.92, and only online rolling adaptation of the CNN-LSTM brought it back down to 0.70. I confirmed the findings on Indian national demand data.',
+    tools: 'Tools: Python, XGBoost, Prophet, PyTorch, SHAP.',
   },
   {
+    year: '2026',
     title: 'NLP Text Classifier',
-    context: 'Natural Language Processing',
-    category: 'NATURAL LANGUAGE PROCESSING',
-    description: 'A fine-tuned DistilBERT against a Linear SVM, reaching a macro-F1 of 0.79.',
-    tags: ['NLP', 'DistilBERT', 'scikit-learn'],
-    icon: MessagesSquare,
+    context: 'University of Hull.',
+    description: 'I fine-tuned DistilBERT and benchmarked it against a Linear SVM baseline, reaching a macro-F1 of 0.79, about 12 percentage points higher. I also automated the evaluation reporting so the results can be reproduced.',
+    tools: 'Tools: Python, Hugging Face Transformers, scikit-learn.',
   },
   {
+    year: '2024',
     title: 'Roll-Forming Line Diagnosis',
-    context: 'Industrias Metálicas RIGSA',
-    category: 'PROCESS OPTIMISATION',
-    description: 'Process mapping with SIPOC and VSM. Two of our proposals were selected for implementation, and the project was named the most outstanding of 16 in the course.',
-    tags: ['Process Mapping', 'SIPOC', 'VSM'],
-    icon: Workflow,
-    distinction: 'Most outstanding project · 1 of 16',
+    context: 'Industrias Metálicas RIGSA.',
+    description: "With a team of five, I mapped a rack manufacturer's roll-forming and cutting line and found a welding bottleneck, unused capacity, long changeovers and scrap. We narrowed 15 ideas to five proposals, and the client chose two to implement: laser-displacement sensors with andon fault alerts, and automated setup of the die press and roll former. The course's director recognised it as the most outstanding of 16 projects.",
+    tools: 'Methods: SIPOC, Value Stream Mapping, Nominal Group Technique.',
   },
   {
+    year: '2024',
     title: 'Fibreglass Conduit Market Entry',
-    context: 'Hunter Composites',
-    category: 'BUSINESS STRATEGY',
-    description: 'Technology surveillance and a blue ocean business case.',
-    tags: ['Technology Surveillance', 'Blue Ocean Strategy'],
-    icon: Compass,
+    context: 'Hunter Composites.',
+    description: "For Mexico's leading fibreglass manufacturer, I screened five candidate products and recommended fibreglass conduits. The business case set them against PVC substitutes, backed by market sizing, standards analysis, a four-perspective KPI framework and an agile roadmap.",
+    tools: 'Methods: technology surveillance, Buyer Utility Map, ERRC grid.',
   },
 ]
 
@@ -44,23 +36,19 @@ export function Projects() {
     <section id="projects" aria-labelledby="projects-title" className="projects-section">
       <div className="page-width">
         <SectionLabel number="02">PROJECTS</SectionLabel>
-        <div className="projects-heading"><h2 id="projects-title">From analysis to impact.</h2><p>Research, real-world problems, measurable outcomes.</p></div>
-        <div className="projects-grid">
+        <h2 id="projects-title" className="projects-heading">Selected work</h2>
+        <div className="projects-list">
           {projects.map((project, index) => (
-            <article key={project.title} aria-labelledby={`project-${index}`}>
-              <Card className="h-full">
-                <CardHeader>
-                  <div className="project-topline"><span className="project-icon"><project.icon className="size-5" strokeWidth={1.5} aria-hidden="true" /></span><span className="project-number">0{index + 1}</span></div>
-                  <p className="project-category">{project.category}</p>
-                  <CardTitle><h3 id={`project-${index}`}>{project.title}</h3></CardTitle>
-                  <CardDescription>{project.context}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex flex-1 flex-col">
-                  <p className="project-description">{project.description}</p>
-                  {project.distinction && <p className="project-distinction"><Award className="size-4" aria-hidden="true" />{project.distinction}</p>}
-                  <ul className="project-tags" aria-label="Project skills">{project.tags.map(tag => <li key={tag}><Badge variant="secondary">{tag}</Badge></li>)}</ul>
-                </CardContent>
-              </Card>
+            <article key={project.title} aria-labelledby={`project-${index}`} className="project-row">
+              <time className="project-year" dateTime={project.year}>{project.year}</time>
+              <header className="project-identity">
+                <h3 id={`project-${index}`}>{project.title}</h3>
+                <p className="project-context">{project.context}</p>
+              </header>
+              <div className="project-copy">
+                <p className="project-description">{project.description}</p>
+                <p className="project-tools">{project.tools}</p>
+              </div>
             </article>
           ))}
         </div>
