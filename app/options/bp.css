@@ -1,0 +1,169 @@
+/* Blueprint, three ways.
+   Shared structure and motion; each variant changes palette, type and
+   where the dark bands fall, so the comparison is about colour rhythm. */
+
+.bp { --pad: clamp(18px, 4vw, 46px); }
+.bp *, .bp *::before, .bp *::after { box-sizing: border-box; }
+.bp h1, .bp h2, .bp h3 { margin: 0; font-weight: 400; }
+.bp p, .bp ul, .bp dl, .bp dd { margin: 0; }
+.bp ul { list-style: none; padding: 0; }
+.bp a { text-decoration: none; color: inherit; }
+.bp :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+
+/* option switcher, shared with the earlier set */
+.bp .opt-bar { position: relative; z-index: 25; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 10px 18px; background: #101010; color: #fff; font: 500 13px/1.4 system-ui, sans-serif; }
+.bp .opt-bar strong { font-weight: 700; }
+.bp .opt-bar a { border-bottom: 1px solid #555; padding-bottom: 1px; color: #fff; }
+.bp .opt-bar a:hover { border-bottom-color: #fff; }
+.bp .opt-bar .here { color: #8c8c8c; border: 0; }
+
+.bp .sheet { width: min(1180px, 100%); margin-inline: auto; padding-inline: var(--pad); }
+
+/* Scroll progress: a rule that fills as you move through the sheet. */
+.bp .progress { position: fixed; inset: 0 0 auto 0; height: 2px; transform-origin: 0 50%; transform: scaleX(0); z-index: 30; }
+
+/* Bands. Each variant decides which sections get ink and which get paper. */
+.bp .band-ink { background: var(--ink-bg); color: var(--ink-fg); }
+.bp .band-paper { background: var(--paper-bg); color: var(--paper-fg); }
+.bp .band-ink { --fg: var(--ink-fg); --bg: var(--ink-bg); --mute: var(--ink-mute); --line: var(--ink-line); --accent: var(--ink-accent); }
+.bp .band-paper { --fg: var(--paper-fg); --bg: var(--paper-bg); --mute: var(--paper-mute); --line: var(--paper-line); --accent: var(--paper-accent); }
+.bp .band-ink { background-image: linear-gradient(var(--grid-ink) 1px, transparent 1px), linear-gradient(90deg, var(--grid-ink) 1px, transparent 1px); background-size: 28px 28px; }
+.bp .band-paper { background-image: linear-gradient(var(--grid-paper) 1px, transparent 1px), linear-gradient(90deg, var(--grid-paper) 1px, transparent 1px); background-size: 28px 28px; }
+
+.bp .anno { font-family: var(--f-anno); font-size: 11.5px; letter-spacing: 0.06em; color: var(--accent); text-transform: uppercase; }
+.bp .titleblock { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; padding-block: 15px; border-bottom: 1px solid var(--line); }
+.bp .titleblock nav { display: flex; gap: 20px; font-size: 13.5px; color: var(--mute); }
+.bp .titleblock nav a:hover { color: var(--accent); }
+
+.bp .hero { padding-block: clamp(42px, 6.4vw, 86px) clamp(34px, 4.6vw, 60px); }
+.bp .hero h1 { font-family: var(--f-display); font-size: var(--h1-size); line-height: var(--h1-leading); font-weight: var(--h1-weight); letter-spacing: var(--h1-tracking); text-transform: var(--h1-case); max-width: 100%; }
+.bp .hero h1 span { display: block; }
+.bp .hero h1 .alt { color: var(--accent); }
+
+/* The dimension line: it draws itself as the hero arrives. */
+.bp .dimension { display: flex; align-items: center; gap: 12px; margin-top: 22px; color: var(--accent); }
+.bp .dimension .bar { flex: 1; height: 1px; background: color-mix(in srgb, currentColor 45%, transparent); position: relative; }
+.bp .dimension .bar > i { position: absolute; inset: 0; background: currentColor; transform-origin: 0 50%; display: block; }
+.bp .dimension .bar::before, .bp .dimension .bar::after { content: ''; position: absolute; top: -4px; width: 1px; height: 9px; background: currentColor; }
+.bp .dimension .bar::before { left: 0; } .bp .dimension .bar::after { right: 0; }
+
+.bp .tagline { font-family: var(--f-display); margin-top: 28px; font-size: clamp(19px, 2.2vw, 29px); line-height: 1.2; font-weight: var(--h2-weight); letter-spacing: -0.015em; max-width: 24ch; }
+.bp .lede { margin-top: 16px; max-width: 54ch; font-size: 15px; line-height: 1.68; color: var(--mute); }
+.bp .specs { display: flex; flex-wrap: wrap; margin-top: 32px; border: 1px solid var(--line); }
+.bp .specs > div { flex: 1 1 210px; padding: 13px 16px; border-right: 1px solid var(--line); }
+.bp .specs > div:last-child { border-right: 0; }
+.bp .specs dt { font-family: var(--f-anno); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--mute); }
+.bp .specs dd { font-size: 14.5px; font-weight: 500; margin-top: 4px; }
+.bp .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.bp .actions a { padding: 11px 19px; font-size: 13.5px; font-weight: 500; border: 1px solid var(--accent); color: var(--accent); }
+.bp .actions a:hover { background: var(--accent); color: var(--bg); }
+.bp .actions a.solid { background: var(--accent); color: var(--bg); }
+.bp .actions a.solid:hover { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+
+.bp section.block { padding-block: clamp(44px, 6vw, 78px); }
+.bp .head { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 10px clamp(18px, 2.4vw, 34px); }
+.bp .head .anno { position: sticky; top: 24px; align-self: start; }
+.bp h2 { font-family: var(--f-display); font-size: clamp(25px, 3.2vw, 38px); font-weight: var(--h2-weight); letter-spacing: -0.028em; line-height: 1.1; max-width: 19ch; }
+.bp .prose { margin-top: 20px; display: flex; flex-direction: column; gap: 14px; max-width: 64ch; font-size: 15.5px; line-height: 1.72; color: var(--mute); }
+.bp .prose strong { color: var(--fg); font-weight: 500; }
+
+.bp .rows { margin-top: 24px; }
+.bp .row { display: grid; grid-template-columns: 150px minmax(0, 0.85fr) minmax(0, 1.3fr); gap: 0 clamp(18px, 2.4vw, 34px); padding-block: 26px; position: relative; }
+/* each row is separated by a rule that draws in as the row arrives */
+.bp .row { border-top: 1px solid var(--line); }
+.bp .row::before { content: ''; position: absolute; inset: -1px 0 auto 0; height: 1px; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+.bp .row h3 { font-family: var(--f-display); font-size: clamp(18px, 2vw, 23px); font-weight: var(--h3-weight); letter-spacing: -0.02em; line-height: 1.16; }
+.bp .row .ctx { margin-top: 7px; font-size: 13px; color: var(--mute); }
+.bp .row .desc { font-size: 14.5px; line-height: 1.72; color: var(--mute); }
+.bp .row .tools { margin-top: 13px; font-family: var(--f-anno); font-size: 11.5px; line-height: 1.65; color: var(--accent); }
+.bp .row .links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
+.bp .row .links a { font-size: 12.5px; font-weight: 500; padding: 6px 12px; border: 1px solid var(--line); }
+.bp .row .links a:hover { border-color: var(--accent); color: var(--accent); }
+
+.bp .partlist { margin-top: 22px; width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.bp .partlist th { text-align: left; font-family: var(--f-anno); font-size: 10.5px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--mute); font-weight: 400; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.bp .partlist td { padding: 13px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.bp .partlist td:first-child { width: 230px; font-weight: 500; padding-right: 20px; }
+.bp .partlist td:last-child { color: var(--mute); }
+.bp .note { margin-top: 20px; font-size: 14px; line-height: 1.68; color: var(--mute); max-width: 58ch; }
+
+.bp footer.sitefoot { padding-block: 30px 42px; }
+.bp footer.sitefoot .inner { display: flex; flex-wrap: wrap; gap: 12px 26px; font-size: 13px; color: var(--mute); }
+.bp footer.sitefoot .fl { margin-left: auto; display: flex; flex-wrap: wrap; gap: 20px; }
+.bp footer.sitefoot a:hover { color: var(--accent); }
+
+/* ── Motion: scroll-driven, on-concept, and optional ──────────
+   The drawing draws itself. Nothing fades in just to move. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .bp .progress { animation: bp-progress linear; animation-timeline: scroll(root); }
+    .bp .dimension .bar > i { animation: bp-draw linear both; animation-timeline: view(); animation-range: entry 0% entry 95%; }
+    .bp .row::before { animation: bp-draw linear both; animation-timeline: view(); animation-range: entry 0% entry 75%; }
+  }
+}
+@keyframes bp-progress { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+@keyframes bp-draw { from { transform: scaleX(0) } to { transform: scaleX(1) } }
+
+/* ── Variant 1 · Drafting Table — light sheet, one ink band ─── */
+.bp-1 {
+  --ink-bg: #0a1f3c; --ink-fg: #eaf2fa; --ink-mute: #a3bcd6; --ink-line: #2f5c8e; --ink-accent: #6fd3f7;
+  --paper-bg: #edf1f6; --paper-fg: #0e2746; --paper-mute: #495f76; --paper-line: #b9c8d8; --paper-accent: #0c6698;
+  --grid-ink: rgba(111,211,247,.05); --grid-paper: rgba(14,39,70,.045);
+  --f-display: 'Clash Display', system-ui, sans-serif;
+  --f-anno: 'Satoshi', system-ui, sans-serif;
+  --h1-size: clamp(32px, 6.6vw, 86px); --h1-leading: 0.98; --h1-weight: 600; --h1-tracking: -0.035em; --h1-case: none;
+  --h2-weight: 600; --h3-weight: 600;
+  font-family: 'Satoshi', system-ui, sans-serif;
+}
+.bp-1 .progress { background: #0c6698; }
+
+/* ── Variant 2 · Signal — navy alternating with warm stock ──── */
+.bp-2 {
+  --ink-bg: #0a1f3c; --ink-fg: #f3efe9; --ink-mute: #b3b9c4; --ink-line: #33506f; --ink-accent: #ff7a4d;
+  --paper-bg: #f3efe9; --paper-fg: #16202e; --paper-mute: #5a5f68; --paper-line: #d6d0c6; --paper-accent: #ad3c16;
+  --grid-ink: rgba(255,122,77,.05); --grid-paper: rgba(22,32,46,.045);
+  --f-display: 'Khand', system-ui, sans-serif;
+  --f-anno: 'General Sans', system-ui, sans-serif;
+  --h1-size: clamp(38px, 8vw, 104px); --h1-leading: 0.92; --h1-weight: 600; --h1-tracking: -0.005em; --h1-case: uppercase;
+  --h2-weight: 400; --h3-weight: 600;
+  font-family: 'General Sans', system-ui, sans-serif;
+}
+.bp-2 h2, .bp-2 .tagline { font-family: 'General Sans', system-ui, sans-serif; font-weight: 600; }
+.bp-2 .row h3 { font-family: 'General Sans', system-ui, sans-serif; }
+.bp-2 .progress { background: #ad3c16; }
+
+/* ── Variant 3 · Night Shift — graphite, blue only as a signal ─ */
+.bp-3 {
+  --ink-bg: #15181c; --ink-fg: #f2f3f5; --ink-mute: #9aa3ad; --ink-line: #2d333a; --ink-accent: #5c97ff;
+  --paper-bg: #f5f6f7; --paper-fg: #15181c; --paper-mute: #545a61; --paper-line: #dcdee1; --paper-accent: #1a5fd4;
+  --grid-ink: rgba(154,163,173,.045); --grid-paper: rgba(21,24,28,.04);
+  --f-display: 'Cabinet Grotesk', system-ui, sans-serif;
+  --f-anno: 'Satoshi', system-ui, sans-serif;
+  --h1-size: clamp(32px, 6.8vw, 90px); --h1-leading: 0.95; --h1-weight: 800; --h1-tracking: -0.032em; --h1-case: none;
+  --h2-weight: 700; --h3-weight: 700;
+  font-family: 'Satoshi', system-ui, sans-serif;
+}
+.bp-3 .progress { background: #5c97ff; }
+
+/* ── Narrow screens ──────────────────────────────────────── */
+@media (max-width: 880px) {
+  .bp .head { grid-template-columns: 1fr; }
+  .bp .head .anno { position: static; }
+  .bp .row { grid-template-columns: 74px minmax(0, 1fr); }
+  .bp .row .desc, .bp .row .tools, .bp .row .links { grid-column: 1 / -1; }
+  .bp .row .desc { margin-top: 12px; }
+  .bp .partlist td:first-child { width: 150px; }
+}
+@media (max-width: 560px) {
+  .bp .row { grid-template-columns: 1fr; }
+  .bp .specs > div { flex-basis: 100%; border-right: 0; border-bottom: 1px solid var(--line); }
+  .bp .specs > div:last-child { border-bottom: 0; }
+  .bp .partlist, .bp .partlist tbody, .bp .partlist tr, .bp .partlist td { display: block; width: auto; }
+  .bp .partlist thead { display: none; }
+  .bp .partlist td { border-bottom: 0; padding: 2px 0; }
+  .bp .partlist tr { padding-block: 13px; border-bottom: 1px solid var(--line); }
+  .bp .partlist td:first-child { width: auto; padding-right: 0; }
+  .bp .titleblock nav { gap: 15px; font-size: 12.5px; }
+  .bp footer.sitefoot .fl { margin-left: 0; width: 100%; }
+}
