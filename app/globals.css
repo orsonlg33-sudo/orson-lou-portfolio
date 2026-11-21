@@ -248,6 +248,9 @@ h2 { font-family: var(--font-fraunces), Georgia, serif; font-size: 33px; line-he
 .project-copy { display: flex; flex-direction: column; gap: 18px; }
 .project-description { font-size: 14px; line-height: 1.85; color: var(--muted-foreground); }
 .project-tools { font-size: 12px; line-height: 1.8; color: var(--foreground); }
+.project-links { display: flex; flex-wrap: wrap; gap: 22px; margin-top: -4px; }
+.project-links a { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; line-height: 1.8; color: var(--foreground); border-bottom: 1px solid var(--border); padding-bottom: 2px; transition: border-color 0.2s ease; }
+.project-links a:hover { border-bottom-color: currentColor; }
 .skills-section { padding-block: 81px 91px; }
 .skills-content { padding-top: 1px; }
 .skills-content > p { font-size: 13px; line-height: 1.8; color: var(--muted-foreground); margin-bottom: 22px; }
