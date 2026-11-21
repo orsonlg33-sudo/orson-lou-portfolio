@@ -1,6 +1,7 @@
-/* Blueprint, three ways.
-   Shared structure and motion; each variant changes palette, type and
-   where the dark bands fall, so the comparison is about colour rhythm. */
+/* Blueprint — a drafting sheet.
+   A pale sheet with navy ink, going full-dark only for the work section
+   and the footer. Motion is scroll-driven and on-concept: the drawing
+   draws itself. Nothing fades in merely to move. */
 
 .bp { --pad: clamp(18px, 4vw, 46px); }
 .bp *, .bp *::before, .bp *::after { box-sizing: border-box; }
@@ -11,12 +12,6 @@
 .bp :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
 
-/* option switcher, shared with the earlier set */
-.bp .opt-bar { position: relative; z-index: 25; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; padding: 10px 18px; background: #101010; color: #fff; font: 500 13px/1.4 system-ui, sans-serif; }
-.bp .opt-bar strong { font-weight: 700; }
-.bp .opt-bar a { border-bottom: 1px solid #555; padding-bottom: 1px; color: #fff; }
-.bp .opt-bar a:hover { border-bottom-color: #fff; }
-.bp .opt-bar .here { color: #8c8c8c; border: 0; }
 
 .bp .sheet { width: min(1180px, 100%); margin-inline: auto; padding-inline: var(--pad); }
 
@@ -105,7 +100,7 @@
 @keyframes bp-progress { from { transform: scaleX(0) } to { transform: scaleX(1) } }
 @keyframes bp-draw { from { transform: scaleX(0) } to { transform: scaleX(1) } }
 
-/* ── Variant 1 · Drafting Table — light sheet, one ink band ─── */
+/* ── Palette and type ──────────────────────────────────────── */
 .bp-1 {
   --ink-bg: #0a1f3c; --ink-fg: #eaf2fa; --ink-mute: #a3bcd6; --ink-line: #2f5c8e; --ink-accent: #6fd3f7;
   --paper-bg: #edf1f6; --paper-fg: #0e2746; --paper-mute: #495f76; --paper-line: #b9c8d8; --paper-accent: #0c6698;
@@ -117,34 +112,6 @@
   font-family: 'Satoshi', system-ui, sans-serif;
 }
 .bp-1 .progress { background: #0c6698; }
-
-/* ── Variant 2 · Signal — navy alternating with warm stock ──── */
-.bp-2 {
-  --ink-bg: #0a1f3c; --ink-fg: #f3efe9; --ink-mute: #b3b9c4; --ink-line: #33506f; --ink-accent: #ff7a4d;
-  --paper-bg: #f3efe9; --paper-fg: #16202e; --paper-mute: #5a5f68; --paper-line: #d6d0c6; --paper-accent: #ad3c16;
-  --grid-ink: rgba(255,122,77,.05); --grid-paper: rgba(22,32,46,.045);
-  --f-display: 'Khand', system-ui, sans-serif;
-  --f-anno: 'General Sans', system-ui, sans-serif;
-  --h1-size: clamp(38px, 8vw, 104px); --h1-leading: 0.92; --h1-weight: 600; --h1-tracking: -0.005em; --h1-case: uppercase;
-  --h2-weight: 400; --h3-weight: 600;
-  font-family: 'General Sans', system-ui, sans-serif;
-}
-.bp-2 h2, .bp-2 .tagline { font-family: 'General Sans', system-ui, sans-serif; font-weight: 600; }
-.bp-2 .row h3 { font-family: 'General Sans', system-ui, sans-serif; }
-.bp-2 .progress { background: #ad3c16; }
-
-/* ── Variant 3 · Night Shift — graphite, blue only as a signal ─ */
-.bp-3 {
-  --ink-bg: #15181c; --ink-fg: #f2f3f5; --ink-mute: #9aa3ad; --ink-line: #2d333a; --ink-accent: #5c97ff;
-  --paper-bg: #f5f6f7; --paper-fg: #15181c; --paper-mute: #545a61; --paper-line: #dcdee1; --paper-accent: #1a5fd4;
-  --grid-ink: rgba(154,163,173,.045); --grid-paper: rgba(21,24,28,.04);
-  --f-display: 'Cabinet Grotesk', system-ui, sans-serif;
-  --f-anno: 'Satoshi', system-ui, sans-serif;
-  --h1-size: clamp(32px, 6.8vw, 90px); --h1-leading: 0.95; --h1-weight: 800; --h1-tracking: -0.032em; --h1-case: none;
-  --h2-weight: 700; --h3-weight: 700;
-  font-family: 'Satoshi', system-ui, sans-serif;
-}
-.bp-3 .progress { background: #5c97ff; }
 
 /* ── Narrow screens ──────────────────────────────────────── */
 @media (max-width: 880px) {

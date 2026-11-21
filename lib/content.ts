@@ -11,6 +11,7 @@ export type Project = {
 
 export const email = 'mailto:orsonlg33@gmail.com'
 export const linkedin = 'https://linkedin.com/in/orson-lou'
+export const github = 'https://github.com/orsonlg33-sudo'
 
 export const profile = {
   firstNames: 'Orson Alejandro',
