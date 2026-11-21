@@ -45,7 +45,7 @@ export function About() {
     <section id="about" aria-labelledby="about-title" className="page-width about-section section-grid">
       <div><SectionLabel number="01">ABOUT</SectionLabel><h2 id="about-title">A systems mindset.<br />A data-driven approach.</h2></div>
       <div className="about-copy">
-        <p>Industrial Engineering student at <strong>Tecnológico de Monterrey</strong> who has completed the <strong>MSc in Artificial Intelligence &amp; Data Science</strong> programme at the <strong>University of Hull.</strong></p>
+        <p>Industrial Engineering student at <strong>Tecnológico de Monterrey</strong> who has completed the <strong>MSc in Artificial Intelligence &amp; Data Science</strong> at the <strong>University of Hull</strong> with <strong>Distinction</strong>.</p>
         <p>I apply discrete-event simulation, operations research and machine learning to find and close process inefficiencies.</p>
         <p className="relocation"><MapPin className="size-4" aria-hidden="true" />Relocating to the UK in January 2027.</p>
       </div>
