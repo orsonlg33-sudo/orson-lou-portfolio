@@ -1,5 +1,4 @@
 import { ArrowUpRight } from 'lucide-react'
-import { SectionLabel } from '@/components/portfolio'
 
 type ProjectLink = { label: string; href: string }
 
@@ -17,6 +16,7 @@ const projects: {
     context: 'MSc dissertation, University of Hull.',
     description: 'I forecast UK half-hourly national demand from 2014 to 2022 with four models trained only on pre-COVID data: persistence, Prophet, XGBoost and a CNN-LSTM. At lockdown, day-ahead error rose from MASE 0.68 to 0.92 for XGBoost and 0.95 for the CNN-LSTM. Of three recovery strategies, only weekly online adaptation worked, bringing the CNN-LSTM back to 0.70. I confirmed the findings on Indian national demand data.',
     tools: 'Tools: Python, XGBoost, Prophet, PyTorch, SHAP.',
+    links: [{ label: 'Read the dissertation (PDF)', href: '/orson-lou-msc-dissertation.pdf' }],
   },
   {
     year: '2026',
@@ -54,10 +54,14 @@ const projects: {
 
 export function Projects() {
   return (
-    <section id="projects" aria-labelledby="projects-title" className="projects-section">
-      <div className="page-width">
-        <SectionLabel number="02">PROJECTS</SectionLabel>
-        <h2 id="projects-title" className="projects-heading">Selected work</h2>
+    <section id="projects" aria-labelledby="projects-title" className="band band-paper">
+      <div className="rail">
+        <div className="section-head">
+          <p className="section-name tick">Work</p>
+          <div>
+            <h2 id="projects-title">Selected work</h2>
+          </div>
+        </div>
         <div className="projects-list">
           {projects.map((project, index) => (
             <article key={project.title} aria-labelledby={`project-${index}`} className="project-row">

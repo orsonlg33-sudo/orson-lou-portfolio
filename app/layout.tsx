@@ -1,11 +1,9 @@
 import { Analytics } from '@vercel/analytics/next'
-import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google'
+import { Archivo } from 'next/font/google'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
-const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces', display: 'swap' })
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono', display: 'swap' })
+const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo', display: 'swap', axes: ['wdth'] })
 
 export const metadata: Metadata = {
   title: 'Orson Lou | Process Optimisation & Data Science',
@@ -18,7 +16,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#101e32',
+  themeColor: '#15312A',
 }
 
 export default function RootLayout({
@@ -28,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light">
-      <body className={`${inter.variable} ${fraunces.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+      <body className={`${archivo.variable} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
