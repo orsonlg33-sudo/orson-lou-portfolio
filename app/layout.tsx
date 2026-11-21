@@ -5,9 +5,12 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Orson Lou | Process Optimisation & Data Science',
   description: 'Orson Alejandro Lou Garza — Industrial Engineering student specialising in process optimisation and data science. Turning operational data into business cases for change.',
-  generator: 'v0.app',
   icons: {
-    icon: '/portfolio-icon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-32.png', type: 'image/png', sizes: '32x32' },
+    ],
+    apple: '/apple-icon.png',
   },
 }
 
