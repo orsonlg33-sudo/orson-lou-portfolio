@@ -30,7 +30,7 @@
 .opt-a .titleblock nav { display: flex; gap: 20px; font-size: 13.5px; color: var(--mute); }
 .opt-a .titleblock nav a:hover { color: var(--cyan); }
 .opt-a .hero { padding-block: clamp(46px, 7vw, 92px) clamp(36px, 5vw, 64px); border-bottom: 1px solid var(--line); }
-.opt-a .hero h1 { font-size: clamp(38px, 7.4vw, 92px); line-height: 1.0; font-weight: 600; letter-spacing: -0.035em; }
+.opt-a .hero h1 { font-size: clamp(32px, 6.4vw, 84px); line-height: 1.0; font-weight: 600; letter-spacing: -0.035em; }
 .opt-a .hero h1 span { display: block; }
 .opt-a .hero h1 span:last-child { color: var(--cyan); }
 /* dimension line under the name, the drawing's own measurement mark */
@@ -87,8 +87,10 @@
 .opt-b .topbar nav { display: flex; gap: 20px; font-size: 14px; font-weight: 500; }
 .opt-b .topbar nav a:hover { color: var(--red-ink); }
 .opt-b .hero { padding-block: clamp(26px, 4vw, 52px) clamp(40px, 6vw, 76px); }
-.opt-b .hero h1 { font-family: var(--font-syne), sans-serif; font-weight: 800; font-size: clamp(46px, 12.4vw, 168px); line-height: 0.86; letter-spacing: -0.045em; text-transform: uppercase; }
+.opt-b .hero h1 { font-family: var(--font-syne), sans-serif; font-weight: 800; font-size: clamp(34px, 8.6vw, 112px); line-height: 0.9; letter-spacing: -0.045em; text-transform: uppercase; }
 .opt-b .hero h1 span { display: block; }
+.opt-b .hero h1 { max-width: 100%; }
+.opt { overflow-x: clip; }
 .opt-b .hero h1 .b { color: var(--red); }
 .opt-b .hero .tagline { font-family: var(--font-syne), sans-serif; margin-top: clamp(22px, 3vw, 38px); font-size: clamp(20px, 2.6vw, 34px); font-weight: 600; line-height: 1.16; letter-spacing: -0.025em; max-width: 21ch; }
 .opt-b .hero .lede { margin-top: 18px; max-width: 52ch; font-size: 15.5px; line-height: 1.68; color: var(--mute); }
@@ -140,7 +142,7 @@
 .opt-c .topbar nav a { border-bottom: 1px solid transparent; padding-bottom: 2px; }
 .opt-c .topbar nav a:hover { border-bottom-color: var(--ink); }
 .opt-c .hero { padding-block: clamp(50px, 8vw, 110px) clamp(40px, 6vw, 72px); }
-.opt-c .hero h1 { font-family: var(--font-instrument), Georgia, serif; font-size: clamp(44px, 9.4vw, 124px); line-height: 0.96; font-weight: 400; letter-spacing: -0.028em; }
+.opt-c .hero h1 { font-family: var(--font-instrument), Georgia, serif; font-size: clamp(38px, 8.4vw, 116px); line-height: 0.96; font-weight: 400; letter-spacing: -0.028em; }
 .opt-c .hero h1 span { display: block; }
 .opt-c .hero .tagline { margin-top: clamp(26px, 3.6vw, 46px); font-size: clamp(18px, 2vw, 25px); line-height: 1.34; font-weight: 400; max-width: 30ch; }
 .opt-c .hero .lede { margin-top: 18px; max-width: 56ch; font-size: 15.5px; line-height: 1.72; color: var(--mid); }
