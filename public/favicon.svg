@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Orson Lou">
+  <rect width="64" height="64" fill="#edf1f6"/>
+  <circle cx="21" cy="26" r="11.5" fill="none" stroke="#0e2746" stroke-width="8"/>
+  <path d="M41 10h8v24h10v8H41z" fill="#0e2746"/>
+  <g stroke="#0c6698" stroke-width="4">
+    <path d="M8 52h48"/>
+    <path d="M8.5 47v10M55.5 47v10"/>
+  </g>
+</svg>
